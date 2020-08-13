@@ -162,7 +162,7 @@ if($_SERVER['REQUEST_METHOD']== 'POST'){
                     if(strpos($fullUrl, "entry=empty") == true){
     
                         echo $_SESSION['error_empty'];
-                        exit();
+                        exit(); 
                     }
                     elseif(strpos($fullUrl, "entry=dateinvalid") == true){
 

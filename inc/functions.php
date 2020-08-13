@@ -3,7 +3,6 @@
 
 require_once 'connection.php';
 
-
 //This function returns an Associative array of Journal Entries
 function get_journal_entries(){
 
@@ -38,7 +37,6 @@ function get_journal_entry($id){
         echo "There Was An Error: ".$e->getMessage();
         return array();
         }
-
 }
 
 
@@ -72,7 +70,6 @@ function addEntry($id=NULL, $db, $title, $date, $time_spent, $learned, $resource
         return false;
       }
       return true;
-
 }
 
 //This function deletes a journal entry from the database 
@@ -121,5 +118,4 @@ function validDate($date){
     }else{
         return TRUE;
     }
-
 }

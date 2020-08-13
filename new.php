@@ -4,7 +4,6 @@
 
 session_start();
 
-
 if($_SERVER['REQUEST_METHOD']== 'POST'){
 
     //filter and store journal entry keys on the POST array
@@ -23,7 +22,6 @@ if($_SERVER['REQUEST_METHOD']== 'POST'){
     elseif(validDate($date) == false){
         header("Location: new.php?entry=dateinvalid&title=$title&time_spent=$time_spent&learned=$learned&resources=$resources");
         $_SESSION['error_date'] = '<p class="error">Please Enter A Valid Date</p>';
-        
         exit();
     }
 
@@ -33,11 +31,8 @@ if($_SERVER['REQUEST_METHOD']== 'POST'){
             $_SESSION["toast_message"] = '<h4 class="toast success">Entry Successful</h4>';
             header("Location: index.php?update=success");
         } 
-    
     }  
-  
 }
-
 ?>
 
 <?php include 'inc/header.php'; ?>
@@ -71,6 +66,8 @@ if($_SERVER['REQUEST_METHOD']== 'POST'){
                     }
                     ?>
                     <form method="POST" action="new.php"> 
+
+                        <!-- Title Input Section -->
                         <label for="title"> Title</label>
                         <?php
                         if(isset($_GET['title'])){
@@ -83,7 +80,8 @@ if($_SERVER['REQUEST_METHOD']== 'POST'){
                             echo '<input id="title" type="text" name="title"><br>';
                         }
                         ?>
-                        
+
+                        <!-- Date Input Section -->
                         <label for="date">Date</label>
                         <?php
 
@@ -97,6 +95,7 @@ if($_SERVER['REQUEST_METHOD']== 'POST'){
                         }
                         ?>
 
+                        <!-- Time-Spent Input Section -->
                         <label for="time-spent"> Time Spent</label>
                         <?php
 
@@ -110,6 +109,7 @@ if($_SERVER['REQUEST_METHOD']== 'POST'){
                         }
 
                         ?>
+                        <!-- Learned Input Section -->
                         <label for="what-i-learned">What I Learned</label>
                         <?php
 
@@ -123,6 +123,7 @@ if($_SERVER['REQUEST_METHOD']== 'POST'){
                         }
 
                         ?>
+                        <!-- Resources Input Section -->
                         <label for="resources-to-remember">Resources to Remember (Seperate Each Resource with a comma ",")</label>
                         <?php
 
@@ -135,14 +136,13 @@ if($_SERVER['REQUEST_METHOD']== 'POST'){
                             echo '<textarea id="resources-to-remember" rows="5" name="resources"></textarea>';
                         }
                         ?>
-                        <label for="tags">Tags (Seperate Each Tag with a comma ",")</label>
-                        <input id="tags" type="text" name="tags"><br>
-
                         <input type="submit" value="Publish Entry" class="button">
                         <a href="index.php" class="button button-secondary">Cancel</a>
                     </form>
 
                     <?php
+                    //The code below will check the URL for either "entry=empty" OR "entry=dateinvalid"
+                    //And echo the appropriate error message
                     $fullUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
                     if(strpos($fullUrl, "entry=empty") == true){

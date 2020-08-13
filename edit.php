@@ -148,10 +148,7 @@ if($_SERVER['REQUEST_METHOD']== 'POST'){
                             echo $entry["resources"]; 
                         }
                         ?></textarea>
-                        <!-- Tags Input Section -->
-                        <label for="tags">Tags (Seperate Each Tag with a comma ",")</label>
-                        <input id="tags" type="text" name="tags"><br>
-
+                        
                         <input type="submit" value="Publish Entry" class="button">
                         <a href="index.php" class="button button-secondary">Cancel</a>
                     </form>

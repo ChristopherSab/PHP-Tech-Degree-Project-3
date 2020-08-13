@@ -1,17 +1,8 @@
+<?php require_once 'inc/functions.php';?>
+<?php session_start(); ?>
 
- <?php include 'inc/header.php'; ?>
- <?php require_once 'inc/functions.php';?>
- <?php
-
- session_start();
-
- $_SESSION["form_error"] = "";
-
- ?>
-
-
+<?php include 'inc/header.php'; ?>
  <body>
-
         <header>
             <div class="container">
                 <div class="site-header">
@@ -22,13 +13,11 @@
         </header>
         <section>
             <div class="container">
- 
                 <div class="entry-list">
 
                 <?php
 
                 if(isset($_GET["update"])){
-
                     echo $_SESSION["toast_message"];
                 } 
 
@@ -38,9 +27,7 @@
                     echo '<time datetime="'.$entry["date"].'">'.dateFormatter($entry["date"]).'</time>';
                     echo '</article>';
                 }
-
                 ?>
-
                 </div>
             </div>
         </section>

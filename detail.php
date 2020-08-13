@@ -1,7 +1,4 @@
-
-<?php include 'inc/header.php'; ?>
 <?php require_once 'inc/functions.php';?>
-
 <?php
 
 session_start();
@@ -26,7 +23,7 @@ if($_SERVER['REQUEST_METHOD']== 'POST'){
 }
 
 ?>
-
+    <?php include 'inc/header.php'; ?>
     <body>
         <header>
             <div class="container">
